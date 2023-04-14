@@ -5,10 +5,12 @@ import AddTransactionCard from './components/AddTransactionCard';
 
 const App = () => {
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <Header />
-      <TransactionCard />
-      <AddTransactionCard />
+    <div className="flex flex-col  items-center ">
+      <div className="w-[30%] border-solid border-cyan-300 border-2 p-4">
+        <Header />
+        <TransactionCard />
+        <AddTransactionCard />
+      </div>
     </div>
   );
 };

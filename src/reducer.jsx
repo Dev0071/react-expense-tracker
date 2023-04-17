@@ -16,6 +16,22 @@ const reducer = (state, action) => {
     };
   }
 
+  if (action.type === 'SET_TOTAL_INCOME') {
+    return { ...state, totalIncome: action.payload };
+  }
+
+  if (action.type === 'SET_TOTAL_EXPENSES') {
+    return { ...state, totalExpenses: action.payload };
+  }
+
+  if (action.type === 'SET_BALANCE') {
+    return { ...state, balance: action.payload };
+  }
+
+  if (action.type === 'SET_TRANSACTIONS') {
+    return { ...state, transactions: action.payload };
+  }
+
   throw new Error('no matching action type');
 };
 

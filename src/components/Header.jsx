@@ -1,4 +1,5 @@
 import React from 'react';
+import { useGlobalContext } from '../context';
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
       </h2>
       <div className="mb-2">
         <p className="text-[15px] text-gray-800">Your Balance</p>
-        <p className="text-lg text-gray-800 font-semibold">$350.00</p>
+        <p className="text-lg text-gray-800 font-semibold">$0</p>
       </div>
       <div className="w-full p-4 bg-white flex items-center justify-around shadow-md mb-7">
         <div className="flex flex-col justify-center items-center">

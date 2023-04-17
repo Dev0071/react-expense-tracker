@@ -6,7 +6,7 @@ import AddTransactionCard from './components/AddTransactionCard';
 const App = () => {
   return (
     <div className="flex flex-col  items-center ">
-      <div className="flex-1 border-solid border-cyan-300 min-w-[340px] border-2 p-4">
+      <div className="flex-1 border-solid border-cyan-300 min-w-[340px] border-2 p-4 mt-3 rounded-md">
         <Header />
         <TransactionCard />
         <AddTransactionCard />

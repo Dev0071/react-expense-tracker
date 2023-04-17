@@ -10,17 +10,16 @@ const AddTransactionCard = () => {
     addTransaction,
   } = useGlobalContext();
   // console.log(transactionName);
-  console.log(transactionAmount);
+  // console.log(transactionAmount);
 
   // check if Amount starts with a +/-
-  // const checkAmount = (inputStr) => {
-  //   const pattern = /^[-+]/;
-  //   return pattern.test(inputStr);
-  // };
+  // ;
 
   //check Amount is interger and starts with a non zero
+  const numTransactionAmount = Number(transactionAmount);
+
   const checkAmount = (inputStr) => {
-    const pattern = /^[+-][1-9]\d*$/;
+    const pattern = /^[-+]?\d+$/;
     return pattern.test(inputStr);
   };
 
@@ -33,6 +32,7 @@ const AddTransactionCard = () => {
         <label className=" text-sm text-gray-800" htmlFor="text">
           Text
         </label>
+
         <input
           type="text"
           placeholder="Enter text"
@@ -43,11 +43,9 @@ const AddTransactionCard = () => {
         <label className="block text-sm text-gray-800" htmlFor="text">
           Amount <br /> (negative - expense, positive - income)
         </label>
-        {checkAmount(transactionAmount) ? (
-          ''
-        ) : (
+        {checkAmount(numTransactionAmount) ? null : (
           <p className=" mt-2 text-[12px] italic text-red-600 text-center">
-            should: put a +/- before the amount, be a number
+            should: be a number
           </p>
         )}
         <input
@@ -56,7 +54,7 @@ const AddTransactionCard = () => {
           value={transactionAmount}
           onChange={getTransactionAmount}
           className={`p-[4px] text-sm w-full my-2 text-gray-800 border-[1px] border-solid outline-none rounded ${
-            checkAmount(transactionAmount)
+            checkAmount(numTransactionAmount)
               ? ' focus:border-gray-600'
               : 'focus:border-red-700'
           }`}
@@ -65,7 +63,9 @@ const AddTransactionCard = () => {
           <button
             type="button"
             onClick={addTransaction}
-            className="p-2 w-full bg-indigo-500 text-white hover:bg-indigo-400 rounded"
+            className={`p-2 w-full bg-indigo-500 text-white hover:bg-indigo-400 rounded ${
+              isNaN(transactionAmount) ? 'disabled' : ''
+            }`}
           >
             Add transaction
           </button>
